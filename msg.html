@@ -28,13 +28,13 @@
         }
 
         button {
-            padding: 10px 20px;
+            padding: 12px 25px;
             font-size: 16px;
             margin: 10px;
             border: none;
-            border-radius: 20px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
         }
 
         .ok {
@@ -43,12 +43,16 @@
         }
 
         .angry {
-            background-color: #555;
+            background-color: #444;
             color: white;
         }
 
         button:hover {
             transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.95);
         }
 
         @keyframes fadeIn {
@@ -58,17 +62,17 @@
 
         .emoji {
             position: absolute;
-            font-size: 24px;
-            animation: floatUp 2s linear forwards;
+            font-size: 26px;
+            animation: floatUp 2s ease-out forwards;
         }
 
         @keyframes floatUp {
             from {
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
                 opacity: 1;
             }
             to {
-                transform: translateY(-150px);
+                transform: translateY(-200px) scale(1.5);
                 opacity: 0;
             }
         }
@@ -89,17 +93,19 @@
     </audio>
 
     <script>
-        // Play music on first click anywhere
+        // Play music on first interaction
         document.body.addEventListener("click", function () {
-            document.getElementById("bg-music").play();
+            document.getElementById("bg-music").play().catch(() => {});
         }, { once: true });
 
         function createEmoji(emoji) {
             const el = document.createElement("div");
             el.className = "emoji";
             el.innerText = emoji;
+
             el.style.left = Math.random() * window.innerWidth + "px";
-            el.style.top = Math.random() * window.innerHeight + "px";
+            el.style.top = (window.innerHeight - 100) + "px";
+
             document.body.appendChild(el);
 
             setTimeout(() => {
@@ -108,14 +114,16 @@
         }
 
         function showKiss() {
-            for (let i = 0; i < 20; i++) {
-                createEmoji("💋");
+            const emojis = ["💋", "❤️", "😘", "😍"];
+            for (let i = 0; i < 25; i++) {
+                createEmoji(emojis[Math.floor(Math.random() * emojis.length)]);
             }
         }
 
         function showSad() {
-            for (let i = 0; i < 20; i++) {
-                createEmoji("😢");
+            const emojis = ["😢", "😭", "💔", "🥺"];
+            for (let i = 0; i < 25; i++) {
+                createEmoji(emojis[Math.floor(Math.random() * emojis.length)]);
             }
         }
     </script>
