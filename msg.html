@@ -105,6 +105,20 @@
         // document.body.addEventListener("click", function () {
         //     document.getElementById("bg-music").play().catch(() => {});
         // }, { once: true });
+        function playSong(songId) {
+         // Get all audio elements
+        let audios = document.querySelectorAll("audio");
+
+         // Stop all songs
+        audios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+        });
+
+        // Play selected song
+        let song = document.getElementById(songId);
+        song.play().catch(() => {});
+        }
 
         function createEmoji(emoji) {
             const el = document.createElement("div");
