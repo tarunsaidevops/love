@@ -80,44 +80,32 @@
 </head>
 <body>
 
-    <h1>Thought you might open this again, I miss you already.(we just had call 11:35 AM, 16/4/2025) ❤️</h1>
+    <h1>Thought you might open this again, I miss you already.
+        (we just had call 11:35 AM, 16/4/2025) ❤️
+    note: press both conveyed feelings with songs</h1>
 
     <div class="buttons">
         <button class="ok" onclick="showKiss();playSong('song1')">I miss you too ma</button>
         <button class="angry" onclick="showSad();playSong('song2')">po ra pandhi..!!</button>
     </div>
 
-    <!-- Music -->
-    <!-- <audio id="bg-music" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio> -->
-
     <audio id="song1" src="song1.mp3"></audio>
     <audio id="song2" src="song2.mp3"></audio>
-    <!-- <audio id="song3" src="song3.mp3"></audio> -->
-
-    <!-- <button onclick="playSong('song1')">Play Song 1</button>
-    <button onclick="playSong('song2')">Play Song 2</button>
-    <button onclick="playSong('song3')">Play Song 3</button> -->
 
     <script>
-        // Play music on first interaction
-        // document.body.addEventListener("click", function () {
-        //     document.getElementById("bg-music").play().catch(() => {});
-        // }, { once: true });
         function playSong(songId) {
-         // Get all audio elements
-        let audios = document.querySelectorAll("audio");
+            // Get all audio elements
+            let audios = document.querySelectorAll("audio");
 
-         // Stop all songs
-        audios.forEach(audio => {
-        audio.pause();
-        audio.currentTime = 0;
-        });
+            // Stop all songs
+            audios.forEach(audio => {
+            audio.pause();
+            audio.currentTime = 0;
+            });
 
-        // Play selected song
-        let song = document.getElementById(songId);
-        song.play().catch(() => {});
+            // Play selected song
+            let song = document.getElementById(songId);
+            song.play().catch(() => {});
         }
 
         function createEmoji(emoji) {
